@@ -1,0 +1,41 @@
+@each $key, $val in $colorMap {
+    .text-#{$key} {
+        color: $val;
+    }
+    .text-#{$key}-lightcomp {
+        color: light-comp($val);
+    }
+    .text-#{$key}-darkcomp {
+        color: dark-comp($val);
+    }
+    .bg-#{$key} {
+        background-color: $val;
+    }
+    .bg-#{$key}-lightcomp {
+        background-color: light-comp($val);
+    }
+    .bg-#{$key}-darkcomp {
+        background-color: dark-comp($val);
+    }
+
+    .b-#{$key} {
+        border: 1px $val solid;
+    }
+
+
+
+    @for $i from 1 through 9 {
+        .text-#{$key}-light-#{$i} {
+            color: mix(white, $val, $i * 10%)
+        }
+        .text-#{$key}-dark-#{$i} {
+            color: mix(black, $val, $i * 10%)
+        }
+        .bg-#{$key}-light-#{$i} {
+            background-color: mix(white, $val, $i * 10%)
+        }
+        .bg-#{$key}-dark-#{$i} {
+            background-color: mix(black, $val, $i * 10%)
+        }
+    }
+}
